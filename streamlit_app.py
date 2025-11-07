@@ -91,10 +91,10 @@ def ask_agent(agent_executor, question: str):
 # 5. Streamlit 메인
 # --------------------------------------------------------------------
 def main():
-    st.set_page_config(page_title="기술보증기금 AI 비서", layout="wide", page_icon="🤖")
-    st.image('data/kibo_image.jpg', width=800)
+    st.set_page_config(page_title="웰시코기 사용법", layout="wide", page_icon="🤖")
+    st.image('data/CORGI.jpg', width=800)
     st.markdown('---')
-    st.title("안녕하세요! RAG + Web을 활용한 '기술보증기금 AI 비서' 입니다")  
+    st.title("안녕하세요! 알알~ RAG + Web을 활용한 '웰시코기 AI 비서' 입니다")  
 
     with st.sidebar:
         openai_api = st.text_input("OPENAI API 키", type="password")
