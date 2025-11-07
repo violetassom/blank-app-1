@@ -32,7 +32,7 @@ def load_pdf_files(uploaded_files):
         documents = loader.load()
         all_documents.extend(documents)
 
-    text_splitter = RecursiveCharacterTextSplitter(chunk_size=1000, chunk_overlap=200)
+    text_splitter = RecursiveCharacterTextSplitter(chunk_size=1000, chunk_overlap=300)
     split_docs = text_splitter.split_documents(all_documents)
 
     vector = FAISS.from_documents(split_docs, OpenAIEmbeddings())
@@ -57,6 +57,7 @@ def build_agent(tools):
         ("system",
          "당신은 KIBO 직원들을 돕는 유용한 어시스턴트입니다. "
          "먼저 항상 'pdf_search'를 사용하세요. "
+         "최대한 pdf에서 찾을 수 있는 내용을 참고하세요. "
          "만약 'pdf_search'에서 관련된 결과가 없다면, 즉시 `web_search`만 호출하세요. "
          "두 도구를 절대 섞어서 사용하지 마세요 "
          "전문적이고 친근한 톤으로 한국어로 답변하며, 이모지를 포함하세요."),
